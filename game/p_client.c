@@ -198,7 +198,7 @@ void ClientObituary (edict_t *self, edict_t *inflictor, edict_t *attacker)
 	char		*message;
 	char		*message2;
 	qboolean	ff;
-
+	//mod starts here
 	char a[20];
 	int dead = 1;
 	FILE *fp = NULL;
@@ -211,7 +211,7 @@ void ClientObituary (edict_t *self, edict_t *inflictor, edict_t *attacker)
 	fp2 = fopen("timesdead.txt", "w");
 	fprintf(fp2,"%d",dead+2);
 	fclose(fp2);
-
+	//mod ends here
 	//gi.dprintf("the number of times dead is currently %d\n", self->timesdead);
 
 	if (coop->value && attacker->client)
