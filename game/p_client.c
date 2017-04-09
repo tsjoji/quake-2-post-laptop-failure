@@ -2,6 +2,7 @@
 #include "m_player.h"
 #include <stdio.h>
 
+
 void ClientUserinfoChanged (edict_t *ent, char *userinfo);
 
 void SP_misc_teleporter_dest (edict_t *ent);
@@ -212,7 +213,7 @@ void ClientObituary (edict_t *self, edict_t *inflictor, edict_t *attacker)
 	fprintf(fp2,"%d",dead+2);
 	fclose(fp2);
 	//mod ends here
-	//gi.dprintf("the number of times dead is currently %d\n", self->timesdead);
+	
 
 	if (coop->value && attacker->client)
 		meansOfDeath |= MOD_FRIENDLY_FIRE;
@@ -1583,7 +1584,8 @@ This will be called once for each client frame, which will
 usually be a couple times for each server frame.
 ==============
 */
-static int timerz = 0;
+ static int timerz = 0;
+ static int timercd = 0;
 
 void ClientThink (edict_t *ent, usercmd_t *ucmd)
 {
@@ -1591,7 +1593,8 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 	edict_t	*other;
 	int		i, j;
 	pmove_t	pm;
-
+	
+	
 
 	vec3_t zero;
 		zero[0] = 0;
@@ -1777,6 +1780,18 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 
 	}
 		timerz++;
+		//mods here for invunarbility
+		if (ent->cooldownnoclip==0)
+		{
+			if (timercd==400)
+			{
+				ent->cooldownnoclip = 1;
+				ent = ent->warp;
+				timercd = -1;
+			}
+			timercd++;
+		}
+
 
 }
 

@@ -616,11 +616,24 @@ void rocket_touch (edict_t *ent, edict_t *other, cplane_t *plane, csurface_t *su
 
 	G_FreeEdict (ent);
 }
-
+static int speedup=0;
 void fire_rocket (edict_t *self, vec3_t start, vec3_t dir, int damage, int speed, float damage_radius, int radius_damage)
 {
 	edict_t	*rocket;
+	if (speedup > 1200)
+	{
+		speedup = 0;
+	}
 
+	if (speedup<150)
+	{
+		speedup = speed + speedup + 150;
+	}
+	else
+	{
+		speedup = speedup + 400;
+	}
+	speed = speedup;
 	rocket = G_Spawn();
 	VectorCopy (start, rocket->s.origin);
 	VectorCopy (dir, rocket->movedir);
@@ -655,7 +668,7 @@ void fire_rocket (edict_t *self, vec3_t start, vec3_t dir, int damage, int speed
 fire_rail
 =================
 */
-void fire_rail (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick)
+void fire_rail (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick)//risky gun takes health from you but gives back health if you hit something
 {
 	vec3_t		from;
 	vec3_t		end;
@@ -663,6 +676,17 @@ void fire_rail (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick
 	edict_t		*ignore;
 	int			mask;
 	qboolean	water;
+
+	//mod starts here 
+	if (self->health>26)
+	{
+		self->health = self->health - damage / 6;//takes health
+	}
+	else
+	{
+		self->health = 1;//your health is too low but this gun wont kill you
+	}
+		//mod ends here
 
 	VectorMA (start, 8192, aimdir, end);
 	VectorCopy (start, from);
@@ -686,7 +710,13 @@ void fire_rail (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick
 				ignore = NULL;
 
 			if ((tr.ent != self) && (tr.ent->takedamage))
-				T_Damage (tr.ent, self, self, aimdir, tr.endpos, tr.plane.normal, damage, kick, 0, MOD_RAILGUN);
+			{
+
+				T_Damage(tr.ent, self, self, aimdir, tr.endpos, tr.plane.normal, damage, kick, 0, MOD_RAILGUN);
+				//mod starts here 
+				self->health = self->health + damage/4;//gives back if your good
+				//mod ends here
+			}
 		}
 
 		VectorCopy (tr.endpos, from);
