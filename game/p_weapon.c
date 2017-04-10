@@ -1140,15 +1140,10 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 	ent->client->kick_angles[0] = -1;
 	if (!hyper)
 	{
-		fire_blaster(ent, start, forward, damage, 500, effect, hyper);
+		
 		start[1] = start[1] + 20;
 		fire_blaster(ent, start, forward, damage, 500, effect, hyper);
 		start[1] = start[1] - 40;
-		fire_blaster(ent, start, forward, damage, 500, effect, hyper);
-		start[1] = start[1] + 20;
-		start[2] = start[2] + 20;
-		fire_blaster(ent, start, forward, damage, 500, effect, hyper);
-		start[2] = start[2] -40;
 		fire_blaster(ent, start, forward, damage, 500, effect, hyper);
 	}
 	else

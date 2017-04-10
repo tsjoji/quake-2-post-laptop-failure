@@ -1,25 +1,6 @@
-﻿Build started 4/8/2017 1:56:16 PM.
-     1>Project "C:\Users\Joji\Desktop\Quake-2-VS2013-master\ref_gl\ref_gl.vcxproj" on node 3 (Rebuild target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D REF_GL_EXPORTS /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /wd4996 /analyze- /errorReport:prompt ..\game\q_shared.c ..\win32\glw_imp.c ..\win32\qgl_win.c ..\win32\q_shwin.c gl_draw.c gl_image.c gl_light.c gl_mesh.c gl_model.c gl_rmain.c gl_rmisc.c gl_rsurf.c gl_warp.c
-         gl_warp.c
-         gl_rsurf.c
-         gl_rmisc.c
-         gl_rmain.c
-     1>c:\users\joji\desktop\quake-2-vs2013-master\ref_gl\gl_rmain.c(1651): warning C4133: '=' : incompatible types - from 'int (__cdecl *)(void *,void *)' to 'qboolean (__cdecl *)(void *,void *)'
-         gl_model.c
-         gl_mesh.c
-         gl_light.c
-         gl_image.c
-         gl_draw.c
-         q_shwin.c
-         qgl_win.c
-         glw_imp.c
-         q_shared.c
-         Generating Code...
-     1>c:\users\joji\desktop\quake-2-vs2013-master\ref_gl\gl_image.c(1223): warning C4715: 'GL_Upload8' : not all control paths return a value
-     1>c:\users\joji\desktop\quake-2-vs2013-master\ref_gl\gl_rmain.c(1341): warning C4715: 'R_Init' : not all control paths return a value
-       Link:
+﻿Build started 4/10/2017 1:42:11 PM.
+     1>Project "C:\Users\Joji\Desktop\Quake-2-VS2013-master\ref_gl\ref_gl.vcxproj" on node 3 (Build target(s)).
+     1>Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Joji\Desktop\Quake-2-VS2013-master\Quake2\ref_gl.dll" /INCREMENTAL /NOLOGO opengl32.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"ref_gl.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Joji\Desktop\Quake-2-VS2013-master\Quake2\ref_gl.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Joji\Desktop\Quake-2-VS2013-master\Quake2\ref_gl.lib" /MACHINE:X86 /DLL Debug\q_shared.obj
          Debug\glw_imp.obj
          Debug\qgl_win.obj
@@ -33,10 +14,11 @@
          Debug\gl_rmisc.obj
          Debug\gl_rsurf.obj
          Debug\gl_warp.obj
+         LINK : C:\Users\Joji\Desktop\Quake-2-VS2013-master\Quake2\ref_gl.dll not found or not built by the last incremental link; performing full link
             Creating library C:\Users\Joji\Desktop\Quake-2-VS2013-master\Quake2\ref_gl.lib and object C:\Users\Joji\Desktop\Quake-2-VS2013-master\Quake2\ref_gl.exp
          ref_gl.vcxproj -> C:\Users\Joji\Desktop\Quake-2-VS2013-master\Quake2\ref_gl.dll
-     1>Done Building Project "C:\Users\Joji\Desktop\Quake-2-VS2013-master\ref_gl\ref_gl.vcxproj" (Rebuild target(s)).
+     1>Done Building Project "C:\Users\Joji\Desktop\Quake-2-VS2013-master\ref_gl\ref_gl.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.05
+Time Elapsed 00:00:00.81
